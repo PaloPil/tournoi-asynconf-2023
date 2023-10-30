@@ -4,6 +4,7 @@ window.onload = function () {
         input.addEventListener("keypress", keyPressed);
     });
     document.querySelector("button").addEventListener("click", buttonClick);
+    document.querySelector("div#result a").addEventListener("click", hidePane);
 };
 
 function keyPressed(e) {
@@ -16,6 +17,9 @@ function keyPressed(e) {
 }
 
 function buttonClick() {
+  document.querySelectorAll(".underline").forEach((underline) => {
+    underline.style.backgroundColor = "var(--main-text-color)";
+  });
   let score = calculateScore(query());
   if (errors.length == 0) {
     displayRate(score);
@@ -25,14 +29,16 @@ function buttonClick() {
 }
 
 function displayErrors(errors) {
-  document.querySelectorAll(".underline").forEach((underline) => {
-    underline.style.backgroundColor = "var(--main-text-color)";
-  });
   errors.forEach((error) => {
     document.querySelector(".underline[name="+error+"]").style.backgroundColor = "red";
   });
 }
 
 function displayRate(score) {
-    alert("Rate : " + rateCalculation(score));
+  document.querySelector("div#result p b").textContent = rateCalculation(score) + "%";
+  document.querySelector("div#result").style.display = "block";
+}
+
+function hidePane() {
+    document.querySelector("div#result").style.display = "none";
 }
