@@ -2,10 +2,12 @@
 
 :root {
     --main-background-color: #FDEDD6;
-    --light-green: #98E587;
-    --dark-green: #043C31;
     --elements-color: #3D2530;
     --main-text-color: #18020C;
+    /*
+    light-green: #98E587;
+    dark-green: #043C31;
+    */
 }
 
 * {
@@ -22,30 +24,77 @@ body {
     
     display: flex;
     flex-direction: column;
-    /*align-items: end;*/
 }
 
 h1 {
     font-size: 48px;
-    font-weight: bolder;
+    font-weight: bold;
     text-align: center;
-    margin: 30px 0;
+    margin: 50px 0 30px 0;
 }
 
 main {
     text-align: center;
     width: 70%;
-    
+
     align-self: flex-end;
 }
+
+button {
+    border: none;
+    border-radius: 100px;
+    font-size: 25px;
+    padding: 9px 12px 7px 14px;
+    background-color: var(--elements-color);
+    color: var(--main-background-color);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2), -5px -5px 10px rgba(255, 255, 255, 0.5);
+}
+
+button:active {
+    margin: 2px 0 0 2px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2), -2px -2px 5px rgba(255, 255, 255, 0.5);
+}
+
+/*Beautify the select inputs*/
+
+.select-container {
+    position: relative;
+    margin: 50px auto;
+    width: 200px;
+}
+.select-container select {
+    font-size: 20px;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid var(--elements-color);
+    padding: 5px 0;
+    background-color: transparent;
+    outline: none;
+}
+.select-container .label {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    color: var(--main-text-color);
+    font-size: 16px;
+}
+.select-container .underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: var(--main-text-color);
+  }
+
+/*Beautify the number inputs*/
 
 .input-container {
   position: relative;
   margin: 50px auto;
   width: 200px;
 }
-
-.input-container input[type="number"] {
+.input-container input {
   font-size: 20px;
   width: 100%;
   border: none;
@@ -54,7 +103,6 @@ main {
   background-color: transparent;
   outline: none;
 }
-
 .input-container .label {
   position: absolute;
   top: 0;
@@ -63,14 +111,11 @@ main {
   transition: all 0.3s ease;
   pointer-events: none;
 }
-
-.input-container input[type="number"]:focus ~ .label,
-.input-container input[type="number"]:valid ~ .label {
+.input-container input:focus ~ .label, .input-container input:valid ~ .label {
   top: -20px;
   font-size: 16px;
   color: var(--main-text-color);
 }
-
 .input-container .underline {
   position: absolute;
   bottom: 0;
@@ -78,78 +123,16 @@ main {
   height: 2px;
   width: 100%;
   background-color: var(--main-text-color);
-  transform: scaleX(0);
-  transition: all 0.3s ease;
 }
 
-.input-container input[type="number"]:focus ~ .underline,
-.input-container input[type="number"]:valid ~ .underline {
-  transform: scaleX(1);
+/*Make the tool responsive*/
+
+@media only screen and (max-width: 767px) {
+    body {background: var(--main-background-color);}
+    main {width: 100%;}
+    h1 {
+        font-size: 35px;
+        margin: 50px 30px;
+    }
+    .select-container, .input-container {margin: 40px auto;}
 }
-
-
-.radio-input input {
-    display: none;
-  }
-  
-  .radio-input {
-    --container_width: 300px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    border-radius: 9999px;
-    background-color: #fff;
-    color: #000000;
-    width: var(--container_width);
-    overflow: hidden;
-    border: 1px solid rgba(53, 52, 52, 0.226);
-  }
-  
-  .radio-input label {
-    width: 100%;
-    padding: 10px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
-    font-weight: 600;
-    letter-spacing: -1px;
-    font-size: 14px;
-  }
-  
-  .selection {
-    display: none;
-    position: absolute;
-    height: 100%;
-    width: calc(var(--container_width) / 4);
-    z-index: 0;
-    left: 0;
-    top: 0;
-    transition: .15s ease;
-  }
-  
-  .radio-input label:has(input:checked) {
-    color: #fff;
-  }
-  
-  .radio-input label:has(input:checked) ~ .selection {
-    background-color: rgb(11 117 223);
-    display: inline-block;
-  }
-  
-  .radio-input label:nth-child(1):has(input:checked) ~ .selection {
-    transform: translateX(calc(var(--container_width) * 0/4));
-  }
-  
-  .radio-input label:nth-child(2):has(input:checked) ~ .selection {
-    transform: translateX(calc(var(--container_width) * 1/4));
-  }
-  
-  .radio-input label:nth-child(3):has(input:checked) ~ .selection {
-    transform: translateX(calc(var(--container_width) * 2/4));
-  }
-  
-  .radio-input label:nth-child(4):has(input:checked) ~ .selection {
-    transform: translateX(calc(var(--container_width) * 3/4));
-  }

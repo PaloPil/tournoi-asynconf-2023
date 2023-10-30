@@ -117,13 +117,3 @@ function rateCalculation(score) {
     return rate;
 
 }
-
-function display() {
-
-    if (errors.length == 0) {
-        displayRate();
-    } else {
-        ui.displayErrors(errors);
-    }
-
-}
