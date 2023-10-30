@@ -1,5 +1,3 @@
-//import * as ui from "ui.js";
-
 let errors = [];
 
 function query() {
@@ -49,8 +47,8 @@ function calculateScore(values) {
         errors.push("energie");
     }
 
-    let km = parseFloat(values[2]);
-    if (km <= 5000 && km <= 30000) {
+    let km = parseInt(values[2]);
+    if (km >= 5000 && km <= 30000) {
         if (km < 10000) {
             score += 9;
         } else if (km < 15000) {
@@ -82,6 +80,8 @@ function calculateScore(values) {
     } else {
         score += 7;
     }
+
+    return score;
 }
 
 function rateCalculation(score) {
@@ -121,7 +121,7 @@ function rateCalculation(score) {
 function display() {
 
     if (errors.length == 0) {
-        
+        displayRate();
     } else {
         ui.displayErrors(errors);
     }

@@ -9,23 +9,48 @@
 	<meta charset="utf-8">
 </head>
     <header>
-        <h1>Title</h1>
+        <h1>Simulateur d'emprunt</h1>
     </header>
 	<main>
         <section>
-            <select name="1" id="1" required>
+            <h2>Type de véhicule</h2>
+            <select name="type" id="type" required>
                 <option value="" disabled selected>Choisissez une option</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
+                <option value="citadine">Citadine (800-1300kg)</option>
+                <option value="cabriolet">Cabriolet (1300-2000kg)</option>
+                <option value="berline">Berline (1300-1800kg)</option>
+                <option value="suv">SUV / 4x4 (1500-2500kg)</option>
             </select>
         </section>
 		<section>
-			<select name="2" id="2" required>
+            <h2>Énergie</h2>
+			<select name="energie" id="energie" required>
                 <option value="" disabled selected>Choisissez une option</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
+                <option value="essence">Essence</option>
+                <option value="electrique">Électrique</option>
+                <option value="gaz">Gaz</option>
+                <option value="diesel">Diesel</option>
+                <option value="hybride">Hybride</option>
             </select>
 		</section>
+        <section>
+            <div class="input-container">
+                <input type="number" id="km" required>
+                <label for="km" class="label">Kilométrage annuel</label>
+                <div class="underline"></div>
+            </div>
+        </section>
+        <section>
+            <div class="input-container">
+                <input type="number" id="annee" required>
+                <label for="annee" class="label">Année de fabrication</label>
+                <div class="underline"></div>
+            </div>
+        </section>
+        <section>
+            <h2>Nombre de passagers</h2>
+            <input type="number" id="passagers">
+        </section>
         <button>Calculer</button>
 	</main>
 </body>
