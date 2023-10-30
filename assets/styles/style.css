@@ -4,10 +4,13 @@
     --main-background-color: #FDEDD6;
     --elements-color: #3D2530;
     --main-text-color: #18020C;
-    /*
-    light-green: #98E587;
-    dark-green: #043C31;
-    */
+    --selection-color: #98E587;
+    --selected-color: #043C31;
+}
+
+::selection {
+    background: var(--selection-color);
+    color: var(--selected-color);
 }
 
 * {
