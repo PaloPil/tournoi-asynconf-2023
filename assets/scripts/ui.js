@@ -16,20 +16,23 @@ function keyPressed(e) {
 }
 
 function buttonClick() {
-  if (errors.length != 0) {
-    displayErrors(errors);
+  let score = calculateScore(query());
+  if (errors.length == 0) {
+    displayRate(score);
   } else {
-    displayRate();
+    displayErrors(errors);
   }
 }
 
 function displayErrors(errors) {
+  document.querySelectorAll(".underline").forEach((underline) => {
+    underline.style.backgroundColor = "var(--main-text-color)";
+  });
   errors.forEach((error) => {
-    document.querySelector("#" + error).style.border = "1px solid red";
+    document.querySelector(".underline[name="+error+"]").style.backgroundColor = "red";
   });
 }
 
-function displayRate() {
-    let score = calculateScore(query());
-    alert("Rate : " + rateCalculation(score) + "\nScore : " + score + "\nErrors : " + errors);
+function displayRate(score) {
+    alert("Rate : " + rateCalculation(score));
 }

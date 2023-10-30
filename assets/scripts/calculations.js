@@ -19,6 +19,8 @@ function query() {
 }
 
 function calculateScore(values) {
+    errors = [];
+
     let score = 0;
 
     let type = values[0];
@@ -30,6 +32,8 @@ function calculateScore(values) {
         score += 6.5;
     } else if (type == "suv") {
         score += 4;
+    } else {
+        errors.push("type");
     }
 
     let energie = values[1];
@@ -65,20 +69,28 @@ function calculateScore(values) {
     }
 
     let annee = parseInt(values[3]);
-    if (annee < 1960) {
-        errors.push("annee");
-    } else if (annee < 1970) {
-        score += 1;
-    } else if (annee < 1980) {
-        score += 2;
-    } else if (annee < 1990) {
-        score += 3;
-    } else if (annee < 2000) {
-        score += 4;
-    } else if (annee < 2010) {
-        score += 5;
+    const currentYear = new Date().getFullYear();
+    if (annee >= 1960 && annee <= currentYear) {
+        if (annee < 1970) {
+                score += 1;
+            } else if (annee < 1980) {
+                score += 2;
+            } else if (annee < 1990) {
+                score += 3;
+            } else if (annee < 2000) {
+                score += 4;
+            } else if (annee < 2010) {
+                score += 5;
+            } else {
+                score += 7;
+            }
     } else {
-        score += 7;
+        errors.push("annee");
+    }
+
+    let nbPassenger = parseInt( document.querySelector("#passagers").value);
+    if (!(nbPassenger < 0 || nbPassenger < 5)) {
+        errors.push("passagers");
     }
 
     return score;
