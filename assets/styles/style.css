@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan&family=Newsreader&display=swap');
+
+:root {
+    --main-background-color: #FDEDD6;
+    --light-green: #98E587;
+    --dark-green: #043C31;
+    --elements-color: #3D2530;
+    --main-text-color: #18020C;
+}
+
+body {
+    background-color: var(--main-bg-color);
+    color: var(--main-text-color);
+}
