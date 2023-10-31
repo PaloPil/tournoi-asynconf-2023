@@ -1,5 +1,9 @@
 let errors = [];
 
+/**
+ * Récupère les valeurs des champs du formulaire de demande de devis.
+ * @returns {Array} Un tableau contenant les valeurs des champs du formulaire.
+ */
 function query() {
     let values = [];
 
@@ -18,6 +22,11 @@ function query() {
     return values;
 }
 
+/**
+ * Calcule le score d'une voiture en fonction de ses caractéristiques.
+ * @param {Array} values - Un tableau contenant les caractéristiques de la voiture.
+ * @returns {number} - Le score de la voiture.
+ */
 function calculateScore(values) {
     errors = [];
 
@@ -96,6 +105,11 @@ function calculateScore(values) {
     return score;
 }
 
+/**
+ * Calcule le taux en fonction du score et du nombre de passagers.
+ * @param {number} score - Le score du conducteur.
+ * @returns {number} Le taux calculé.
+ */
 function rateCalculation(score) {
 
     let rate = 0;
