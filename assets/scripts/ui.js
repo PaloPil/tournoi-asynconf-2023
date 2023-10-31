@@ -37,7 +37,7 @@ function displayErrors(errors) {
   if (errors.includes("energie")) {errorMessage += "\n- Le type d'énergie utilisée par le véhicule doit être renseigné\n";}
   if (errors.includes("km")) {errorMessage += "\n- Le nombre de kilomètres parcourus par an doit être compris entre 5 000km et 30 000km\n";}
   if (errors.includes("annee")) {errorMessage += "\n- L'année de fabrication du véhicule doit être postérieure à 1959\n";}
-  if (errors.includes("passagers")) {errorMessage += "\n- Le nombre de passagers du véhicule doit être inféreiur à 4\n";}
+  if (errors.includes("passagers")) {errorMessage += "\n- Le nombre de passagers du véhicule doit être inférieur à 4\n";}
 
   alert(errorMessage);
 }
